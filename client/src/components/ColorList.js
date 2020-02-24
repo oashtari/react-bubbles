@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const initialColor = {
   color: "",
@@ -21,11 +22,41 @@ const ColorList = ({ colors, updateColors }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
-  };
+
+    // const updatedColor = color;
+
+    setTimeout(() => {
+      axiosWithAuth()
+        .put(`/colors/${colorToEdit.id}`, colorToEdit)
+        .then(res => {
+          console.log('did the color edit', res.data);
+          // props.history.push('/colors')
+          // console.log('color list', colorList)
+          // dispatch({ type: LOAD_FRIENDS, payload: res.data })
+        })
+        .catch(err => {
+          console.log('colors did not update', err)
+          // dispatch({ type: ERROR_FRIENDS, payload: 'could not get your friends' })
+        })
+    }, 100)
+  }
+
+
 
   const deleteColor = color => {
     // make a delete request to delete this color
+    axiosWithAuth()
+      .delete(`/colors/${color.id}`)
+      .then(res => console.log('delete worked', res))
+      .catch(err => console.log('delete did not work', err))
   };
+
+  // deleteMovie = () => {
+  //   axios.delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
+  //     .then(res => this.props.history.push("/"))
+  //     .catch(error => console.log(error));
+  // }
+
 
   return (
     <div className="colors-wrap">
