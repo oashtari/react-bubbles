@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 import Bubbles from "./Bubbles";
@@ -14,14 +13,11 @@ const BubblePage = () => {
       axiosWithAuth()
         .get(`/colors`)
         .then(res => {
-          // console.log('what colords do we have', res.data);
           setColorList(res.data);
           console.log('color list', colorList)
-          // dispatch({ type: LOAD_FRIENDS, payload: res.data })
         })
         .catch(err => {
           console.log('no colors for you', err)
-          // dispatch({ type: ERROR_FRIENDS, payload: 'could not get your friends' })
         })
     }, 5000)
   }, [colorList])
