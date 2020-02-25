@@ -19,7 +19,7 @@ const BubblePage = () => {
         .catch(err => {
           console.log('no colors for you', err)
         })
-    }, 5000)
+    }, 100000)
   }, [colorList])
 
   // fetch your colors data from the server when the component mounts

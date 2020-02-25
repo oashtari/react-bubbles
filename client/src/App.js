@@ -23,30 +23,18 @@ import BubblePage from './components/BubblePage';
 
 function App() {
   return (
-    // <Provider store={store}>
     <Router>
       <div className="App">
         <Route exact path="/" component={Login} />
-        {/* 
-          Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
-        */}
         <Link to='/login'>Log In</Link>
         <br />
-        {/* <Link to='/friends'>Protected Friends page</Link> */}
-        <br />
-        {/* <Link to='/add'>Want to add a friend?</Link> */}
-
 
         <Switch>
           <ProtectedRoute path='/colors' component={BubblePage} />
-          {/* <ProtectedRoute path='/add' component={AddFriendForm} /> */}
-          <Route component={Login} />
           <Route path='/login' component={Login} />
         </Switch>
       </div>
     </Router>
-    // </Provider>
   );
 }
 

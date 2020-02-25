@@ -8,11 +8,9 @@ const initialColor = {
 };
 
 const ColorList = ({ colors, updateColors }) => {
-  // console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
   const [colorToAdd, setColorToAdd] = useState(initialColor);
-  // const [adding, setAdding] = useState(true);
 
   const editColor = color => {
     setEditing(true);
@@ -138,8 +136,6 @@ const ColorList = ({ colors, updateColors }) => {
           </div>
         </form>
       </div>
-
-      {/* stretch - build another form here to add a color */}
     </div>
   );
 };

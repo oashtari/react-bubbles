@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
-// import { connect } from 'react-redux';
-
-// import { getFriends } from '../actions';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-
-// const Login = () =>
 
 class Login extends React.Component {
   // make a post request to retrieve a token from the api
